@@ -1,0 +1,63 @@
+{
+  "preset": "btop-grid",
+  "version": "1.0",
+  "refresh_rate_ms": 1000,
+  "panels": {
+    "header": {
+      "visible": true,
+      "height_type": "fixed",
+      "height": 3
+    },
+    "cpu": {
+      "visible": true,
+      "row": 1,
+      "col": 0,
+      "width_pct": 33,
+      "min_height": 8
+    },
+    "memory": {
+      "visible": true,
+      "row": 1,
+      "col": 1,
+      "width_pct": 33,
+      "min_height": 8
+    },
+    "network": {
+      "visible": true,
+      "row": 1,
+      "col": 2,
+      "width_pct": 34,
+      "min_height": 8
+    },
+    "disk": {
+      "visible": true,
+      "row": 2,
+      "col": 0,
+      "width_pct": 100,
+      "min_height": 6
+    },
+    "filter_bar": {
+      "visible_when_active": true,
+      "height": 3
+    },
+    "processes": {
+      "visible": true,
+      "flex": 1,
+      "min_height": 10,
+      "columns": [
+        { "name": "PID", "width": 7 },
+        { "name": "USER", "width": 12 },
+        { "name": "CPU%", "width": 7 },
+        { "name": "MEM%", "width": 7 },
+        { "name": "MEM(MB)", "width": 9 },
+        { "name": "ST", "width": 3 },
+        { "name": "COMMAND", "min_width": 20 }
+      ]
+    },
+    "footer": {
+      "visible": true,
+      "height_type": "fixed",
+      "height": 1
+    }
+  }
+}

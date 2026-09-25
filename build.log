@@ -1,0 +1,1213 @@
+       Fresh unicode-ident v1.0.26
+       Fresh either v1.18.0
+       Fresh cfg-if v1.0.5
+       Fresh smallvec v1.16.2
+       Fresh scopeguard v1.2.0
+       Fresh windows-link v0.2.1
+       Fresh heck v0.5.0
+       Fresh allocator-api2 v0.2.21
+warning: implicit autoref creates a reference to the dereference of a raw pointer
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\allocator-api2-0.2.21\src\stable\vec\mod.rs:1902:30
+     |
+1902 |         let count = unsafe { (*other).len() };
+     |                              ^^-----^^^^^^^
+     |                                |
+     |                                this raw pointer has type `*const [T]`
+     |
+     = note: creating a reference requires the pointer target to be valid and imposes aliasing requirements
+note: autoref is being applied to this expression, resulting in: `&[T]`
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\allocator-api2-0.2.21\src\stable\vec\mod.rs:1902:30
+     |
+1902 |         let count = unsafe { (*other).len() };
+     |                              ^^^^^^^^
+note: method calls to `len` require a reference
+    --> C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib/rustlib/src/rust\library\core\src\slice\mod.rs:116:5
+     |
+ 116 |     pub const fn len(&self) -> usize {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     = note: `#[warn(dangerous_implicit_autorefs)]` on by default
+help: try using a raw pointer method instead; or if this reference is intentional, make it explicit
+     |
+1902 |         let count = unsafe { (&(*other)).len() };
+     |                              ++        +
+
+       Fresh equivalent v1.0.2
+       Fresh foldhash v0.1.5
+warning: direct cast of function item into an integer
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\foldhash-0.1.5\src\seed.rs:138:35
+    |
+138 |         seed = mix(seed, func_ptr as usize as u64);
+    |                                   ^^^^^^^^
+    |
+    = note: `#[warn(function_casts_as_integer)]` on by default
+help: first cast to a pointer `as *const ()`
+    |
+138 |         seed = mix(seed, func_ptr as *const () as usize as u64);
+    |                                   ++++++++++++
+
+       Fresh ryu v1.0.23
+       Fresh bitflags v2.13.2
+       Fresh itoa v1.0.18
+       Fresh unicode-segmentation v1.13.3
+       Fresh static_assertions v1.1.0
+       Fresh unicode-width v0.1.14
+       Fresh once_cell v1.21.4
+       Fresh cassowary v0.3.0
+warning: use of deprecated macro `try`: use the `?` operator instead
+  --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:77:13
+   |
+77 |             try!(self.add_constraint(constraint.clone()));
+   |             ^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:135:9
+    |
+135 |         try!(self.optimise(&objective).map_err(|e| AddConstraintError::InternalSolverError(e.0)));
+    |         ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:115:17
+    |
+115 |             if !try!(self.add_with_artificial_variable(&row)
+    |                 ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:163:9
+    |
+163 |         try!(self.optimise(&objective).map_err(|e| RemoveConstraintError::InternalSolverError(e.0)));
+    |         ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:141:19
+    |
+141 |         let tag = try!(self.cns.remove(constraint).ok_or(RemoveConstraintError::UnknownConstraint));
+    |                   ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:151:38
+    |
+151 |             let (leaving, mut row) = try!(self.get_marker_leaving_row(tag.marker)
+    |                                      ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:215:13
+    |
+215 |             try!(self.remove_constraint(&constraint)
+    |             ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:286:9
+    |
+286 |         try!(self.dual_optimise().map_err(|e| SuggestValueError::InternalSolverError(e.0)));
+    |         ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:239:24
+    |
+239 |             let info = try!(self.edits.get_mut(&variable).ok_or(SuggestValueError::UnknownEditVariable));
+    |                        ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:497:9
+    |
+497 |         try!(self.optimise(&artificial));
+    |         ^^^
+
+warning: use of deprecated macro `try`: use the `?` operator instead
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\solver_impl.rs:560:38
+    |
+560 |             let (leaving, mut row) = try!(self.get_leaving_row(entering)
+    |                                      ^^^
+
+warning: use of deprecated constant `std::sync::atomic::ATOMIC_USIZE_INIT`: the `new` function is now preferred
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cassowary-0.3.0\src\lib.rs:235:77
+    |
+235 | static VARIABLE_ID: ::std::sync::atomic::AtomicUsize = ::std::sync::atomic::ATOMIC_USIZE_INIT;
+    |                                                                             ^^^^^^^^^^^^^^^^^
+    |
+help: replace the use of the deprecated constant
+    |
+235 - static VARIABLE_ID: ::std::sync::atomic::AtomicUsize = ::std::sync::atomic::ATOMIC_USIZE_INIT;
+235 + static VARIABLE_ID: ::std::sync::atomic::AtomicUsize = ::std::sync::atomic::AtomicUsize::new(0);
+    |
+
+warning: `allocator-api2` (lib) generated 1 warning
+warning: `foldhash` (lib) generated 1 warning
+warning: `cassowary` (lib) generated 12 warnings
+       Fresh proc-macro2 v1.0.107
+       Fresh lock_api v0.4.14
+       Fresh itertools v0.13.0
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\lib.rs:1491:30
+     |
+1491 |     fn peeking_take_while<F>(&mut self, accept: F) -> PeekingTakeWhile<Self, F>
+     |                              ^^^^^^^^^                ^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                              |
+     |                              the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+     = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+     |
+1491 |     fn peeking_take_while<F>(&mut self, accept: F) -> PeekingTakeWhile<'_, Self, F>
+     |                                                                        +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\lib.rs:1517:26
+     |
+1517 |     fn take_while_ref<F>(&mut self, accept: F) -> TakeWhileRef<Self, F>
+     |                          ^^^^^^^^^                ^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                          |
+     |                          the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1517 |     fn take_while_ref<F>(&mut self, accept: F) -> TakeWhileRef<'_, Self, F>
+     |                                                                +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\lib.rs:2331:26
+     |
+2331 |     fn format(self, sep: &str) -> Format<Self>
+     |                          ^^^^     ^^^^^^^^^^^^ the same lifetime is hidden here
+     |                          |
+     |                          the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+2331 |     fn format(self, sep: &str) -> Format<'_, Self>
+     |                                          +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\lib.rs:2370:34
+     |
+2370 |     fn format_with<F>(self, sep: &str, format: F) -> FormatWith<Self, F>
+     |                                  ^^^^                ^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                                  |
+     |                                  the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+2370 |     fn format_with<F>(self, sep: &str, format: F) -> FormatWith<'_, Self, F>
+     |                                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\adaptors\mod.rs:526:35
+    |
+526 | pub fn take_while_ref<I, F>(iter: &mut I, f: F) -> TakeWhileRef<I, F>
+    |                                   ^^^^^^           ^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                                   |
+    |                                   the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+526 | pub fn take_while_ref<I, F>(iter: &mut I, f: F) -> TakeWhileRef<'_, I, F>
+    |                                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.13.0\src\peeking_take_while.rs:129:39
+    |
+129 | pub fn peeking_take_while<I, F>(iter: &mut I, f: F) -> PeekingTakeWhile<I, F>
+    |                                       ^^^^^^           ^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                                       |
+    |                                       the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+129 | pub fn peeking_take_while<I, F>(iter: &mut I, f: F) -> PeekingTakeWhile<'_, I, F>
+    |                                                                         +++
+
+       Fresh hashbrown v0.15.5
+       Fresh itertools v0.12.1
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\lib.rs:1438:30
+     |
+1438 |     fn peeking_take_while<F>(&mut self, accept: F) -> PeekingTakeWhile<Self, F>
+     |                              ^^^^^^^^^                ^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                              |
+     |                              the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+     = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+     |
+1438 |     fn peeking_take_while<F>(&mut self, accept: F) -> PeekingTakeWhile<'_, Self, F>
+     |                                                                        +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\lib.rs:1464:26
+     |
+1464 |     fn take_while_ref<F>(&mut self, accept: F) -> TakeWhileRef<Self, F>
+     |                          ^^^^^^^^^                ^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                          |
+     |                          the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1464 |     fn take_while_ref<F>(&mut self, accept: F) -> TakeWhileRef<'_, Self, F>
+     |                                                                +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\lib.rs:2309:26
+     |
+2309 |     fn format(self, sep: &str) -> Format<Self>
+     |                          ^^^^     ^^^^^^^^^^^^ the same lifetime is hidden here
+     |                          |
+     |                          the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+2309 |     fn format(self, sep: &str) -> Format<'_, Self>
+     |                                          +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\lib.rs:2348:34
+     |
+2348 |     fn format_with<F>(self, sep: &str, format: F) -> FormatWith<Self, F>
+     |                                  ^^^^                ^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+     |                                  |
+     |                                  the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+2348 |     fn format_with<F>(self, sep: &str, format: F) -> FormatWith<'_, Self, F>
+     |                                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\adaptors\mod.rs:591:35
+    |
+591 | pub fn take_while_ref<I, F>(iter: &mut I, f: F) -> TakeWhileRef<I, F>
+    |                                   ^^^^^^           ^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                                   |
+    |                                   the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+591 | pub fn take_while_ref<I, F>(iter: &mut I, f: F) -> TakeWhileRef<'_, I, F>
+    |                                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\itertools-0.12.1\src\peeking_take_while.rs:129:39
+    |
+129 | pub fn peeking_take_while<I, F>(iter: &mut I, f: F) -> PeekingTakeWhile<I, F>
+    |                                       ^^^^^^           ^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                                       |
+    |                                       the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+129 | pub fn peeking_take_while<I, F>(iter: &mut I, f: F) -> PeekingTakeWhile<'_, I, F>
+    |                                                                         +++
+
+warning: `itertools` (lib) generated 6 warnings
+warning: `itertools` (lib) generated 6 warnings
+       Fresh rustversion v1.0.23
+       Fresh winapi v0.3.9
+warning: rule #3 of macro `FN` is never used
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\winapi-0.3.9\src\macros.rs:414:5
+    |
+414 |     (cdecl $func:ident($($t:ty,)*) -> $ret:ty) => (
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: the lint level is defined here
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\winapi-0.3.9\src\lib.rs:7:9
+    |
+  7 | #![deny(unused, unused_qualifications)]
+    |         ^^^^^^
+    = note: `#[warn(unused_macro_rules)]` implied by `#[warn(unused)]`
+
+warning: unnecessary qualification
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\winapi-0.3.9\src\um\evntcons.rs:173:9
+    |
+173 |         mem::size_of::<T>(),
+    |         ^^^^^^^^^^^^^^^^^
+    |
+note: the lint level is defined here
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\winapi-0.3.9\src\lib.rs:7:17
+    |
+  7 | #![deny(unused, unused_qualifications)]
+    |                 ^^^^^^^^^^^^^^^^^^^^^
+help: remove the unnecessary path segments
+    |
+173 -         mem::size_of::<T>(),
+173 +         size_of::<T>(),
+    |
+
+       Fresh quote v1.0.47
+       Fresh crossbeam-utils v0.8.23
+       Fresh windows_x86_64_msvc v0.52.6
+       Fresh parking_lot_core v0.9.12
+       Fresh lru v0.12.5
+       Fresh paste v1.0.15
+       Fresh unicode-truncate v1.1.0
+       Fresh libc v0.2.189
+warning: `winapi` (lib) generated 2 warnings
+       Fresh crossbeam-epoch v0.9.21
+       Fresh syn v2.0.119
+       Fresh windows-targets v0.52.6
+       Fresh crossterm_winapi v0.9.1
+       Fresh parking_lot v0.12.5
+       Fresh castaway v0.2.4
+       Fresh ntapi v0.4.3
+       Fresh crossbeam-deque v0.8.8
+       Fresh windows-core v0.52.0
+warning: unexpected `cfg` condition name: `windows_debugger_visualizer`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-core-0.52.0\src\lib.rs:7:13
+  |
+7 | #![cfg_attr(windows_debugger_visualizer, debugger_visualizer(natvis_file = "../windows.natvis"))]
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 32 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_debugger_visualizer)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(windows_debugger_visualizer)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: transmuting an integer to a pointer creates a pointer without provenance
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-core-0.52.0\src\imp\weak_ref_count.rs:119:9
+    |
+119 |         std::mem::transmute(value << 1)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this is dangerous because dereferencing the resulting pointer is undefined behavior
+    = note: exposed provenance semantics can be used to create a pointer based on some previously exposed provenance
+    = help: if you truly mean to create a pointer without provenance, use `std::ptr::without_provenance_mut`
+    = help: for more information about transmute, see <https://doc.rust-lang.org/std/mem/fn.transmute.html#transmutation-between-pointers-and-integers>
+    = help: for more information about exposed provenance, see <https://doc.rust-lang.org/std/ptr/index.html#exposed-provenance>
+    = note: `#[warn(integer_to_ptr_transmutes)]` on by default
+help: use `std::ptr::with_exposed_provenance_mut` instead to use a previously exposed provenance
+    |
+119 -         std::mem::transmute(value << 1)
+119 +         &mut *std::ptr::with_exposed_provenance_mut::<TearOff>(value << 1)
+    |
+
+warning: suspicious definition of the runtime `strlen` symbol used by the standard library
+  --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-core-0.52.0\src\strings\mod.rs:22:5
+   |
+22 |     pub fn strlen(s: PCSTR) -> usize;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected `unsafe extern "C" fn(*const i8) -> usize`
+           found    `unsafe extern "C" fn(pcstr::PCSTR) -> usize`
+   = help: either fix the signature or remove any attributes like `#[unsafe(no_mangle)]`, `#[unsafe(export_name = "strlen")]`, or `#[link_name = "strlen"]`
+   = help: allow this lint if the signature is compatible
+   = note: `#[warn(suspicious_runtime_symbol_definitions)]` on by default
+
+       Fresh strum_macros v0.26.4
+warning: field `kw` is never read
+  --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\strum_macros-0.26.4\src\helpers\metadata.rs:90:14
+   |
+90 |     Derive { kw: kw::derive, paths: Vec<Path> },
+   |     ------   ^^
+   |     |
+   |     field in this variant
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `kw` is never read
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\strum_macros-0.26.4\src\helpers\metadata.rs:157:9
+    |
+156 |     Serialize {
+    |     --------- field in this variant
+157 |         kw: kw::serialize,
+    |         ^^
+
+warning: field `kw` is never read
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\strum_macros-0.26.4\src\helpers\metadata.rs:178:9
+    |
+177 |     Props {
+    |     ----- field in this variant
+178 |         kw: kw::props,
+    |         ^^
+
+       Fresh compact_str v0.7.1
+       Fresh crossterm v0.27.0
+warning: unexpected `cfg` condition name: `winapi`
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\crossterm-0.27.0\src\lib.rs:257:11
+    |
+257 | #[cfg(all(winapi, not(feature = "winapi")))]
+    |           ^^^^^^
+    |
+    = help: expected names are: `docsrs`, `feature`, and `test` and 32 more
+    = help: consider using a Cargo feature instead
+    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+             [lints.rust]
+             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(winapi)'] }
+    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(winapi)");` to the top of the `build.rs`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `winapi`
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\crossterm-0.27.0\src\lib.rs:257:23
+    |
+257 | #[cfg(all(winapi, not(feature = "winapi")))]
+    |                       ^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `bracketed-paste`, `default`, `event-stream`, `events`, `filedescriptor`, `serde`, `use-dev-tty`, and `windows`
+    = help: consider adding `winapi` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `crossterm_winapi`
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\crossterm-0.27.0\src\lib.rs:260:11
+    |
+260 | #[cfg(all(crossterm_winapi, not(feature = "crossterm_winapi")))]
+    |           ^^^^^^^^^^^^^^^^
+    |
+    = help: consider using a Cargo feature instead
+    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+             [lints.rust]
+             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(crossterm_winapi)'] }
+    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(crossterm_winapi)");` to the top of the `build.rs`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `crossterm_winapi`
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\crossterm-0.27.0\src\lib.rs:260:33
+    |
+260 | #[cfg(all(crossterm_winapi, not(feature = "crossterm_winapi")))]
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `bracketed-paste`, `default`, `event-stream`, `events`, `filedescriptor`, `serde`, `use-dev-tty`, and `windows`
+    = help: consider adding `crossterm_winapi` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: struct `InternalEventFilter` is never constructed
+  --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\crossterm-0.27.0\src\event\filter.rs:65:19
+   |
+65 | pub(crate) struct InternalEventFilter;
+   |                   ^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+       Fresh stability v0.2.1
+warning: method `attrs` is never used
+  --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\stability-0.2.1\src\unstable.rs:94:8
+   |
+93 | pub(crate) trait ItemLike {
+   |                  -------- method in this trait
+94 |     fn attrs(&self) -> &[syn::Attribute];
+   |        ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `windows-core` (lib) generated 3 warnings
+warning: `strum_macros` (lib) generated 3 warnings
+warning: `crossterm` (lib) generated 5 warnings
+warning: `stability` (lib) generated 1 warning
+       Fresh rayon-core v1.13.0
+       Fresh strum v0.26.3
+       Fresh windows v0.52.0
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Wdk\System\SystemServices\mod.rs:507:5
+    |
+507 |     ::windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrint(format : ::windows_core::PCSTR) -> u32);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: `#[warn(unsupported_calling_conventions)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Wdk\System\SystemServices\mod.rs:515:5
+    |
+515 |     ::windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrintEx(componentid : u32, level : u32, format : ::windows_core::PCSTR) -> u32);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Wdk\System\SystemServices\mod.rs:523:5
+    |
+523 |     ::windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrintReturnControlC(format : ::windows_core::PCSTR) -> u32);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1267:5
+     |
+1267 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCSTR) -> ());
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1278:5
+     |
+1278 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : ::windows_core::PCWSTR) -> ());
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1424:5
+     |
+1424 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfA(dwtraceid : u32, lpszformat : ::windows_core::PCSTR) -> u32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1432:5
+     |
+1432 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_core::PCSTR) -> u32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1440:5
+     |
+1440 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_core::PCWSTR) -> u32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\NetworkManagement\NetManagement\mod.rs:1448:5
+     |
+1448 |     ::windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfW(dwtraceid : u32, lpszformat : ::windows_core::PCWSTR) -> u32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\Security\Authorization\mod.rs:166:5
+    |
+166 |     ::windows_targets::link!("authz.dll" "cdecl"...t : u32) -> super::super::Foundation:: BOOL);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\Security\Authorization\mod.rs:181:5
+    |
+181 |     ::windows_targets::link!("authz.dll" "cdecl"...t : u32) -> super::super::Foundation:: BOOL);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\Security\Authorization\mod.rs:282:5
+    |
+282 |     ::windows_targets::link!("authz.dll" "cdecl" fn AuthzReportSecurityEvent(dwflags : u32, heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : u32, pusersid : super::super::Foundation:: PSID, dwcount : u32) -> super::super::Foundation:: BOOL);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Diagnostics\Debug\mod.rs:1025:5
+     |
+1025 |     ::windows_targets::link!("kernel32.dll" "cdecl" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD) -> ());
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Ole\mod.rs:1027:5
+     |
+1027 |     ::windows_targets::link!("oledlg.dll" "cdecl" fn OleUIPromptUserA(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Ole\mod.rs:1037:5
+     |
+1037 |     ::windows_targets::link!("oledlg.dll" "cdecl" fn OleUIPromptUserW(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:528:5
+    |
+528 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:545:5
+    |
+545 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:570:5
+    |
+570 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:617:5
+    |
+617 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall2(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:624:5
+    |
+624 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:956:5
+    |
+956 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrDcomAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: use `extern "C"` instead
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+    = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:1124:5
+     |
+1124 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8) -> ());
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:1131:5
+     |
+1131 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode2(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8) -> CLIENT_CALL_RETURN);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Rpc\mod.rs:1138:5
+     |
+1138 |     ::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode3(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\System\Wmi\mod.rs:3:5
+  |
+3 |     ::windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: use `extern "C"` instead
+  = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+  = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+  = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\UI\Shell\mod.rs:6278:5
+     |
+6278 |     ::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : ::windows_core::PSTR, cchdest : i32, pszfmt : ::windows_core::PCSTR) -> i32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: "cdecl" is not a supported ABI for the current target
+    --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows-0.52.0\src\Windows\Win32\UI\Shell\mod.rs:6286:5
+     |
+6286 |     ::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : ::windows_core::PWSTR, cchdest : i32, pszfmt : ::windows_core::PCWSTR) -> i32);
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: use `extern "C"` instead
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #137018 <https://github.com/rust-lang/rust/issues/137018>
+     = note: this warning originates in the macro `::windows_targets::link` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `windows` (lib) generated 27 warnings
+       Fresh rayon v1.12.0
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\blocks.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\chain.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\chunks.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\cloned.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\copied.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::iter::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\empty.rs:1:5
+  |
+1 | use crate::iter::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\enumerate.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\filter.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\filter_map.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\find.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\find_first_last\mod.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\flat_map.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\flat_map_iter.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\flatten.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\flatten_iter.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\fold.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\fold_chunks.rs:4:5
+  |
+4 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\fold_chunks_with.rs:4:5
+  |
+4 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\inspect.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\interleave.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\interleave_shortest.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\intersperse.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\len.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\map.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\map_with.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\multizip.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::iter::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\once.rs:1:5
+  |
+1 | use crate::iter::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\panic_fuse.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\positions.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\repeat.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\rev.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\skip.rs:2:5
+  |
+2 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\skip_any.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\skip_any_while.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\splitter.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\step_by.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\take.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\take_any.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\take_any_while.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\unzip.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\update.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\while_some.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\zip.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `super::plumbing::*`
+ --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rayon-1.12.0\src\iter\zip_eq.rs:1:5
+  |
+1 | use super::plumbing::*;
+  |     ^^^^^^^^^^^^^^^^^^
+
+       Fresh ratatui v0.26.3
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\terminal\terminal.rs:159:22
+    |
+159 |     pub fn get_frame(&mut self) -> Frame {
+    |                      ^^^^^^^^^     ^^^^^ the same lifetime is hidden here
+    |                      |
+    |                      the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+159 |     pub fn get_frame(&mut self) -> Frame<'_> {
+    |                                         ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\terminal\terminal.rs:260:20
+    |
+260 |     pub fn draw<F>(&mut self, f: F) -> io::Result<CompletedFrame>
+    |                    ^^^^^^^^^                      ^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                    |
+    |                    the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+260 |     pub fn draw<F>(&mut self, f: F) -> io::Result<CompletedFrame<'_>>
+    |                                                                 ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\text\line.rs:450:17
+    |
+450 |     pub fn iter(&self) -> std::slice::Iter<Span<'a>> {
+    |                 ^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+450 |     pub fn iter(&self) -> std::slice::Iter<'_, Span<'a>> {
+    |                                            +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\text\line.rs:455:21
+    |
+455 |     pub fn iter_mut(&mut self) -> std::slice::IterMut<Span<'a>> {
+    |                     ^^^^^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+455 |     pub fn iter_mut(&mut self) -> std::slice::IterMut<'_, Span<'a>> {
+    |                                                       +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\text\text.rs:438:17
+    |
+438 |     pub fn iter(&self) -> std::slice::Iter<Line<'a>> {
+    |                 ^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+438 |     pub fn iter(&self) -> std::slice::Iter<'_, Line<'a>> {
+    |                                            +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\text\text.rs:443:21
+    |
+443 |     pub fn iter_mut(&mut self) -> std::slice::IterMut<Line<'a>> {
+    |                     ^^^^^^^^^     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+443 |     pub fn iter_mut(&mut self) -> std::slice::IterMut<'_, Line<'a>> {
+    |                                                       +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ratatui-0.26.3\src\widgets\block.rs:802:9
+    |
+802 |         &self,
+    |         ^^^^^ the lifetime is elided here
+...
+805 |     ) -> impl DoubleEndedIterator<Item = &Title> {
+    |                                          ^^^^^^
+    |                                          ||
+    |                                          |the same lifetime is hidden here
+    |                                          the same lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+805 |     ) -> impl DoubleEndedIterator<Item = &Title<'_>> {
+    |                                                ++++
+
+warning: `rayon` (lib) generated 44 warnings
+warning: `ratatui` (lib) generated 7 warnings
+       Fresh sysinfo v0.30.13
+   Compiling sysmon_btop v0.1.0 (C:\Users\Administrator\Desktop\sysmon(monitor))
+     Running `set CARGO=C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\cargo.exe&& set CARGO_BIN_NAME=sysmon_btop&& set CARGO_CRATE_NAME=sysmon_btop&& set CARGO_MANIFEST_DIR=C:\Users\Administrator\Desktop\sysmon(monitor)&& set CARGO_MANIFEST_PATH=C:\Users\Administrator\Desktop\sysmon(monitor)\Cargo.toml&& set CARGO_PKG_AUTHORS=""&& set CARGO_PKG_DESCRIPTION=""&& set CARGO_PKG_HOMEPAGE=""&& set CARGO_PKG_LICENSE=""&& set CARGO_PKG_LICENSE_FILE=""&& set CARGO_PKG_NAME=sysmon_btop&& set CARGO_PKG_README=""&& set CARGO_PKG_REPOSITORY=""&& set CARGO_PKG_RUST_VERSION=""&& set CARGO_PKG_VERSION=0.1.0&& set CARGO_PKG_VERSION_MAJOR=0&& set CARGO_PKG_VERSION_MINOR=1&& set CARGO_PKG_VERSION_PATCH=0&& set CARGO_PKG_VERSION_PRE=""&& set CARGO_PRIMARY_PACKAGE=1&& set PATH="C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe;C:\Toolchains\Utilities\cmake\bin;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\Administrator\AppData\Local\Programs\Python\Python314\;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\Programs\Ollama;C:\Users\Administrator\.cargo\bin;C:\ffmpeg\bin;c:\users\administrator\.local\bin;C:\Program Files\Microsoft Network Monitor 3\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\GitHub CLI\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Administrator\AppData\Local\Programs\Python\Python312\;C:\Users\Administrator\bin;C:\Users\Administrator\AppData\Local\hermes\bin;C:\Users\Administrator\AppData\Local\Programs\OpenAI\Codex\bin;C:\Users\Administrator\.lmstudio\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Microsoft\WinGet\Links;C:\Users\Administrator\.dotnet\tools;C:\Users\Administrator\AppData\Local\PowerToys\DSCModules\;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin"&& C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\rustc.exe --crate-name sysmon_btop --edition=2021 src\main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg cfg(docsrs,test) --check-cfg "cfg(feature, values())" -C metadata=d9f53ff62c89145e --out-dir C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps -C incremental=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\incremental -L dependency=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps --extern crossterm=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libcrossterm-9baa0727508998ec.rlib --extern ratatui=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libratatui-e286b446412aa423.rlib --extern sysinfo=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libsysinfo-d40dfda14156cfb4.rlib -L native=C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows_x86_64_msvc-0.52.6\lib`
+error[E0609]: no field `users` on type `&App`
+   --> src\main.rs:316:39
+    |
+316 |         self.filter.apply(&sys, &self.users)
+    |                                       ^^^^^ unknown field
+    |
+    = note: available fields are: `telemetry`, `running`, `filter`, `paused`, `selected` ... and 4 others
+
+warning: unreachable pattern
+   --> src\main.rs:470:39
+    |
+462 |                         KeyCode::Char('k') | KeyCode::Delete => {
+    |                         ------------------ matches all the relevant values
+...
+470 |                         KeyCode::Up | KeyCode::Char('k') => {
+    |                                       ^^^^^^^^^^^^^^^^^^ no value can reach this
+    |
+    = note: `#[warn(unreachable_patterns)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0609`.
+warning: `sysmon_btop` (bin "sysmon_btop") generated 1 warning
+error: could not compile `sysmon_btop` (bin "sysmon_btop") due to 1 previous error; 1 warning emitted
+
+Caused by:
+  process didn't exit successfully: `set CARGO=C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\cargo.exe&& set CARGO_BIN_NAME=sysmon_btop&& set CARGO_CRATE_NAME=sysmon_btop&& set CARGO_MANIFEST_DIR=C:\Users\Administrator\Desktop\sysmon(monitor)&& set CARGO_MANIFEST_PATH=C:\Users\Administrator\Desktop\sysmon(monitor)\Cargo.toml&& set CARGO_PKG_AUTHORS=""&& set CARGO_PKG_DESCRIPTION=""&& set CARGO_PKG_HOMEPAGE=""&& set CARGO_PKG_LICENSE=""&& set CARGO_PKG_LICENSE_FILE=""&& set CARGO_PKG_NAME=sysmon_btop&& set CARGO_PKG_README=""&& set CARGO_PKG_REPOSITORY=""&& set CARGO_PKG_RUST_VERSION=""&& set CARGO_PKG_VERSION=0.1.0&& set CARGO_PKG_VERSION_MAJOR=0&& set CARGO_PKG_VERSION_MINOR=1&& set CARGO_PKG_VERSION_PATCH=0&& set CARGO_PKG_VERSION_PRE=""&& set CARGO_PRIMARY_PACKAGE=1&& set PATH="C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe;C:\Toolchains\Utilities\cmake\bin;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\Administrator\AppData\Local\Programs\Python\Python314\;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\Programs\Ollama;C:\Users\Administrator\.cargo\bin;C:\ffmpeg\bin;c:\users\administrator\.local\bin;C:\Program Files\Microsoft Network Monitor 3\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\GitHub CLI\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Administrator\AppData\Local\Programs\Python\Python312\;C:\Users\Administrator\bin;C:\Users\Administrator\AppData\Local\hermes\bin;C:\Users\Administrator\AppData\Local\Programs\OpenAI\Codex\bin;C:\Users\Administrator\.lmstudio\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Microsoft\WinGet\Links;C:\Users\Administrator\.dotnet\tools;C:\Users\Administrator\AppData\Local\PowerToys\DSCModules\;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin"&& C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\rustc.exe --crate-name sysmon_btop --edition=2021 src\main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg cfg(docsrs,test) --check-cfg "cfg(feature, values())" -C metadata=d9f53ff62c89145e --out-dir C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps -C incremental=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\incremental -L dependency=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps --extern crossterm=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libcrossterm-9baa0727508998ec.rlib --extern ratatui=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libratatui-e286b446412aa423.rlib --extern sysinfo=C:\Users\Administrator\Desktop\sysmon(monitor)\target\debug\deps\libsysinfo-d40dfda14156cfb4.rlib -L native=C:\Users\Administrator\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\windows_x86_64_msvc-0.52.6\lib` (exit code: 1)

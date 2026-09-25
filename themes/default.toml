@@ -1,0 +1,30 @@
+[theme]
+main_bg = "default"
+main_fg = "default"
+title = "#00ff00"
+hi_fg = "#00ffff"
+
+header_fg = "#00ffff"
+footer_fg = "#888888"
+
+cpu_box = "#00ff00"
+mem_box = "#ffff00"
+net_box = "#0000ff"
+disk_box = "#ff8800"
+process_box = "#ff00ff"
+filter_box = "#00ffff"
+
+selected_bg = "#3a3a3a"
+selected_fg = "#90ee90"
+table_header_fg = "#00ffff"
+
+cpu_spark_top = "#90ee90"
+cpu_spark_bottom = "#555555"
+net_rx = "#00ffff"
+net_tx = "#add8e6"
+disk_read = "#ff8800"
+disk_write = "#ff4444"
+
+status_ok = "#00ff00"
+status_warn = "#ffff00"
+status_danger = "#ff0000"

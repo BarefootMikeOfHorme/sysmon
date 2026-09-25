@@ -1,0 +1,35 @@
+fn draw_ui(f: &mut Frame, app: &mut App, m: &SystemMetrics, rows: &[ProcessRow]) {
+    // Root split: Top bar for CPU waveform, Bottom block for the multi-pane dashboard
+    let root_chunks = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([
+            Constraint::Length(12), // Top section: CPU graph & core overview
+            Constraint::Min(15),    // Bottom section: Side metrics + Process table
+            Constraint::Length(1),  // Status bar
+        ])
+        .split(f.size());
+
+    // Split bottom section into Left (Resource columns) and Right (Process Matrix)
+    let bottom_split = Layout::default()
+        .direction(Direction::Horizontal)
+        .constraints([
+            Constraint::Percentage(35), // Left side: Mem, Disks, Net widgets stack
+            Constraint::Percentage(65), // Right side: Massive process matrix table
+        ])
+        .split(root_chunks[1]);
+
+    // Left side vertical stack for system metrics
+    let left_stack = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([
+            Constraint::Length(7),  // Memory & Swap
+            Constraint::Length(7),  // Disks / IO
+            Constraint::Min(8),     // Network history
+        ])
+        .split(bottom_split[0]);
+
+    draw_cpu_btop(f, root_chunks[0], m);
+    draw_side_metrics(f, left_stack[0], left_stack[1], left_stack[2], m);
+    draw_process_matrix(f, bottom_split[1], app, rows);
+    draw_status_bar(f, root_chunks[2], app);
+}
