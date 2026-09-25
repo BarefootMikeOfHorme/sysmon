@@ -1,0 +1,17 @@
+┌───────────────── SYSMON [Debug Scope: python.exe (PID 4122 - local_inference.py)] ─────────────────┐
+│ [1: System]  [2: Dev-Tools]  [3: AI-Cluster]  [4: Sandboxes]  ► [DEBUG: local_inference.py (PID 4122)] │
+├───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌─ TARGET PROCESS HARDWARE FOOTPRINT (Isolating Thread / VRAM Spike) ───────────────────────────┐ │
+│ │ CPU Threads: [████████████████████] 28/32 Active  (Warning: High Context Switching)          │ │
+│ │ VRAM Usage:  [████████████████████] 11.8 / 12.0 GB (CRITICAL: OOM Imminent on RTX 4070 Ti)     │ │
+│ │ Core Temp:   79°C [████████████████░░] (Approaching Thermal Throttling Limit)                 │ │
+│ └─────────────────────────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─ UNIFIED RUNTIME & ERROR LOG STREAM (stdout / stderr) ──────────────────────────────────────┐ │
+│ │ [12:41:02] [INFO] Initializing model weights into CUDA device memory...                       │ │
+│ │ [12:41:05] [INFO] Allocated tensors: shape=[4096, 4096], device=cuda:0                       │ │
+│ │ [12:41:18] [WARNING] Thread pool saturation detected across 28 worker threads.              │ │
+│ │ [12:41:22] [ERROR] CUDA out of memory. Tried to allocate 1.42 GB (GPU 0; 11.9 GB total capacity)│ │
+│ └─────────────────────────────────────────────────────────────────────────────────────────────┘ │
+├───────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ [F1: Export Dump] [F2: Purge VRAM Buffer] [F4: Adjust Thread Affinity] [ESC: Return to Main Tabs]  │
+└───────────────────────────────────────────────────────────────────────────────────────────────────┘

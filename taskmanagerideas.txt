@@ -1,0 +1,19 @@
+┌────────────────────────────────────────── SYSMON v1.0.0 ──────────────────────────────────────────┐
+│ 📁 File    ⚙ Options    🔍 Search processes, PIDs, or commands...                                 │
+├─────────────────┬─────────────────────────────────────────────────────────────────────────────────┤
+│                 │  Name / Scoped Process Tree             CPU%   Memory   VRAM MB   Status          │
+│ (1) Processes   │  ├─ 🌐 Google Chrome (32)               0.3%   3,953 MB         —               │
+│ (2) Performance │  ├─ 🐧 VmmemWSL                         0.3%   2,000 MB         —               │
+│ (3) AI-Cluster  │  ├─ 🟢 ollama serve [Local LLM]         1.2%   2,100 MB  2,100  [AI Scope]      │
+│ (4) Dev-Tools   │  ├─ 🦀 cargo build / rustc              4.2%     840 MB      0  [Dev Scope]     │
+│ (5) Sandboxes   │  └─ 🐍 python.exe (local_inference)     2.5%     428 MB  7,420  [Debugged]      │
+│                 │                                                                                 │
+│ ────────────────│  Active Scope View: System Baseline (Task Manager Mode)                         │
+│ (6) 🐞 Debug    │                                                                                 │
+│   ├── {tab1}.py │  <-- Left-click switches to active file debug stream & hardware footprint       │
+│   └── {tab2}.rs │  <-- Right-click opens file context / scope handling menu (Attach, Purge, etc.) │
+├─────────────────┴─────────────────────────────────────────────────────────────────────────────────┤
+│ 📟 EMBEDDED TERMINAL DASHBOARD & LIVE AI IPC BRIDGE [Press Ctrl+Space to Pop Transparent HUD]     │
+│ > sysmon1 --scope ai-cluster --json                                                               │
+│ {"status": "healthy", "vram_free_gb": 4.6, "active_ai_runtimes": ["ollama", "python"]}            │
+└───────────────────────────────────────────────────────────────────────────────────────────────────┘

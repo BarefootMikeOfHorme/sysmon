@@ -1,0 +1,43 @@
+use crossterm::event::{self, Event, MouseEvent, MouseEventKind, MouseButton};
+use ratatui::{backend::Backend, Terminal};
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ActiveScope {
+    System,
+    Performance,
+    AiCluster,
+    DevTools,
+    Sandboxes,
+}
+
+pub struct AppState {
+    pub active_scope: ActiveScope,
+    pub popup_active: bool,
+    pub selected_pid: Option<u32>,
+}
+
+pub fn handle_mouse_event(event: MouseEvent, app: &mut AppState) {
+    match event.kind {
+        MouseEventKind::Down(MouseButton::Left) => {
+            // Check if click coordinates hit the left sidebar tab markers (1-5)
+            if event.column < 20 {
+                app.active_scope = match event.row {
+                    3 => ActiveScope::System,
+                    4 => ActiveScope::Performance,
+                    5 => ActiveScope::AiCluster,
+                    6 => ActiveScope::DevTools,
+                    7 => ActiveScope::Sandboxes,
+                    _ => app.active_scope,
+                };
+                app.popup_active = false; // Dismiss any open popups on tab switch
+            }
+        }
+        MouseEventKind::Down(MouseButton::Right) => {
+            // Right-click triggers the in-depth troubleshooting / debug popup for the targeted process/block
+            app.popup_active = true;
+            // Capture the PID or scope block based on row/column coordinates
+            app.selected_pid = Some(1042); // Example target PID from tree
+        }
+        _ => {}
+    }
+}

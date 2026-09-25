@@ -1,0 +1,15 @@
+┌──────────────────────────────────────┐     Pipes Output     ┌──────────────────────────────────────┐
+│       IDE / Visual Studio / App      │ ───────────────────> │           sysmon Bridge              │
+│  (Compiling, running, or throwing    │                      │  - Captures stdout/stderr in real-time│
+│   runtime errors / exceptions)       │ <─────────────────── │  - Injects AI agent analyzer context │
+└──────────────────────────────────────┘      Action / Fix    └──────────────────┬───────────────────┘
+                                                                                 │
+                                                                   Unified Interactive Stream
+                                                                                 │
+                                                                                 ▼
+                                                      ┌──────────────────────────────────────────────┐
+                                                      │           TUI Interactive Overlay            │
+                                                      │  - Combined Log & Performance Timeline       │
+                                                      │  - One-click "Send to AI Agent / Repair"     │
+                                                      │  - Instant OS-native or WSL2 signal control  │
+                                                      └──────────────────────────────────────────────┘
